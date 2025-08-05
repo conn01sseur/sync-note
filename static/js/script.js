@@ -1,7 +1,6 @@
 const text = "Sync Note";
 const typingTextElement = document.getElementById("typing-text");
 const userInput = document.getElementById("user-input");
-const instructionElement = document.getElementById("instruction");
 const inputContainer = document.getElementById("input-container");
 let index = 0;
 
@@ -17,7 +16,6 @@ async function animateTyping() {
     }
     inputContainer.classList.remove('hidden');
     await delay(1000);
-    animateDeleting();
 }
 
 async function animateDeleting() {
@@ -29,17 +27,8 @@ async function animateDeleting() {
 }
 
 async function startTyping() {
-    if (!localStorage.getItem('textDisplayed')) {
-        await animateTyping();
-        localStorage.setItem('textDisplayed', 'true');
-    }
+    await animateTyping();
+    localStorage.setItem('textDisplayed');
 }
-
-userInput.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        showInstruction();
-    }
-});
 
 startTyping();
