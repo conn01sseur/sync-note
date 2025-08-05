@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'Muli';
+    src: url('../font/Muli/Muli.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pixel';
+    src: url('../font/PixelizerBold.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    background-color: #000000;
+    color: white;
+    font-family: Pixel, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.hello {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    align-items: center;
+}
+
+#typing-text {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+    animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
+}
+
+#input-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#user-input {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#instruction {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: lightgray;
+    text-align: center;
+    max-height: 200px;
+    overflow: auto;
+    width: 80%;
+}
