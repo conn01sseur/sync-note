@@ -10,7 +10,9 @@
             <h1 id="typing-text"></h1>
             <form id="text-form" action="/save" method="POST">
                 <textarea id="user-input" name="user_text" rows="10" cols="50"></textarea>
-                <button id="submit-button" type="submit">Отправить</button>
+                <div class="button_cont">
+                    <button id="submit-button" type="submit">Отправить</button>
+                </div>
             </form>
         </div>
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
