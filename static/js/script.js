@@ -32,3 +32,16 @@ async function startTyping() {
 }
 
 startTyping();
+
+document.getElementById('submit').addEventListener('click', function() {
+    const text = document.getElementById('user-input').value;
+    localStorage.setItem('savedText', text); // Сохраняем текст
+    alert('Текст сохранён!');
+});
+
+window.addEventListener('load', function() {
+    const savedText = localStorage.getItem('savedText');
+    if (savedText) {
+        document.getElementById('user-input').value = savedText;
+    }
+});

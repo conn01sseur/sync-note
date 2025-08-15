@@ -75,7 +75,9 @@ body {
     cursor: pointer;
     margin-top: 10px; /* Отступ от textarea */
     transition: background-color 0.3s;
+    
 }
+
 
 #submit-button:hover {
     background-color: rgba(255, 255, 255, 0.3);
