@@ -1,11 +1,34 @@
 from flask import Flask, request, render_template
 from datetime import datetime
 import os
+import json
 
 app = Flask(__name__)
+
+# Файл для сохранения состояния счетчика
+COUNTER_FILE = 'counter.json'
+
+def load_counter():
+    try:
+        with open(COUNTER_FILE, 'r') as f:
+            data = json.load(f)
+            return data['num'], datetime.strptime(data['last_date'], "%m.%d")
+    except (FileNotFoundError, json.JSONDecodeError, KeyError):
+        return 155, datetime.now()  # Значение по умолчанию
+
+def save_counter(num, date):
+    with open(COUNTER_FILE, 'w') as f:
+        json.dump({'num': num, 'last_date': date.strftime("%m.%d")}, f)
+
+# Инициализация счетчика
 current_datetime = datetime.now()
 formatted_date = current_datetime.strftime("%m.%d")
-num = 154
+num, last_date = load_counter()
+
+# Проверяем, изменилась ли дата
+if formatted_date != last_date.strftime("%m.%d"):
+    num += 1
+    save_counter(num, current_datetime)
 
 @app.route('/')
 def home():
