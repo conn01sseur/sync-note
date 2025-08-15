@@ -59,4 +59,28 @@ body {
     padding: 250px;
     border-radius: 5px;
     font-size: 16px;
+    width: 1000px;
+    height: 140px;
+    padding: 10px;
+}
+
+#submit-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Pixel, sans-serif;
+    cursor: pointer;
+    margin-top: 10px; /* Отступ от textarea */
+    transition: background-color 0.3s;
+}
+
+#submit-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#submit-button:active {
+    background-color: rgba(255, 255, 255, 0.4);
 }
